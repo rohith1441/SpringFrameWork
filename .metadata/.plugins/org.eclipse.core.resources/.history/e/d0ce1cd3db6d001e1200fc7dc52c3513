@@ -1,0 +1,23 @@
+package practice_project;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+@Component
+public class difference_of_numbers implements calculations{
+	numbers_for_calculation numbers_for_calculation_diffCalculation;
+	@Autowired
+	public difference_of_numbers(numbers_for_calculation numbers_for_calculation_diffCalculation) {
+		this.numbers_for_calculation_diffCalculation=numbers_for_calculation_diffCalculation;
+	}
+
+	@Override
+	public void ans() {
+		numbers_for_calculation_diffCalculation.setNum1(123545.353);
+		numbers_for_calculation_diffCalculation.setNum2(2345234.254);
+		var diff= numbers_for_calculation_diffCalculation.getNum1()-numbers_for_calculation_diffCalculation.getNum2();
+		System.out.println(diff);
+		
+		
+	}
+
+}

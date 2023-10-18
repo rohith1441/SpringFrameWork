@@ -1,0 +1,21 @@
+package practice_project;
+
+import org.apache.logging.log4j.spi.ObjectThreadContextMap;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+
+
+
+@Configuration
+@ComponentScan
+public class calculations_main {
+	public static void main(String[] args) {
+		var context = new AnnotationConfigApplicationContext(calculations_main.class);
+		//for(String string: context.getBeanDefinitionNames()) {System.out.println(string);}
+		var cal = context.getBean(mother_of_all.class);
+		cal.calculate();
+	}
+
+}

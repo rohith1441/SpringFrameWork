@@ -1,0 +1,19 @@
+package practice_project;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+@Component
+public class multiplication_of_numbers {
+	numbers_for_calculation numbers_for_calculation_sumCalculation;
+	@Autowired
+	public multiplication_of_numbers(numbers_for_calculation numbers_for_calculation_sumCalculation) {
+		this.numbers_for_calculation_sumCalculation=numbers_for_calculation_sumCalculation;
+	}
+	public void ans() {
+		numbers_for_calculation_sumCalculation.setNum1(123);
+		numbers_for_calculation_sumCalculation.setNum2(12345);
+		double sumed= numbers_for_calculation_sumCalculation.getNum1()*numbers_for_calculation_sumCalculation.getNum2();
+		System.out.println(sumed);
+	}
+
+}

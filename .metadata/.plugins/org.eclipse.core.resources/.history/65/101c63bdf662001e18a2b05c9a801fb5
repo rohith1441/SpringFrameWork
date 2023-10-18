@@ -1,0 +1,17 @@
+package com.rohith.learnspringframework.game;
+
+public class GameRunner {
+	SuperContraGame game;
+	public GameRunner(SuperContraGame superContraGame) {
+		this.game = superContraGame;
+	}
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println("Running game: "+game);
+		game.up();
+		game.down();
+		game.left();
+		game.right();
+	}
+
+}

@@ -1,0 +1,14 @@
+package practice_project;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+@Component
+@Configuration
+public class calculations_main {
+	public static void main(String[] args) {
+		var context = new AnnotationConfigApplicationContext(calculations_main.class);
+		System.out.println(context.getBean(sum_of_numbers.class));
+	}
+
+}

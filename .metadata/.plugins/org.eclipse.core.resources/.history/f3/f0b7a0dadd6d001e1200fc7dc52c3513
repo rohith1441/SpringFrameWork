@@ -1,0 +1,30 @@
+package practice_project;
+
+import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+@Component
+public class difference_of_numbers implements calculations{
+	numbers_for_calculation numbers_for_calculation_diffCalculation;
+	@Autowired
+	public difference_of_numbers(numbers_for_calculation numbers_for_calculation_diffCalculation) {
+		this.numbers_for_calculation_diffCalculation=numbers_for_calculation_diffCalculation;
+	}
+
+	@Override
+	public void ans() {
+		var scanner = new Scanner(System.in);
+		System.out.print("Enter the number 1: ");
+		double num1=scanner.nextDouble();
+		System.out.print("Enter the number 2: ");
+		double num2=scanner.nextDouble();
+		numbers_for_calculation_diffCalculation.setNum1(num1);
+		numbers_for_calculation_diffCalculation.setNum2(num2);
+		var diff= numbers_for_calculation_diffCalculation.getNum1()-numbers_for_calculation_diffCalculation.getNum2();
+		System.out.println(diff);
+		
+		
+	}
+
+}

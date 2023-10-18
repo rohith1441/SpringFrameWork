@@ -1,0 +1,30 @@
+package com.rohith.learnspringframework;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.rohith.learnspringframework.game.GameRunner;
+import com.rohith.learnspringframework.game.GamingConsole;
+import com.rohith.learnspringframework.game.PacManGame;
+@Configuration
+public class GamingConfiguration {
+	@Bean
+	public GamingConsole game() {
+		var game =new PacManGame();
+		return game;
+		
+	}
+	
+			//var game = new MarioGame();
+			//var game =new PacManGame();// 1. Object Creation
+			//var game = new SuperContraGame();
+			//var gameRunner = new GameRunner(game);//2: Object creation + Wiring of dependencies
+			// Game is a dependency of GameRunner 
+			//gameRunner.run();
+	@Bean
+	public GameRunner gameRunner(GamingConsole game) {
+		var gameRunner = new GameRunner(game);
+		return gameRunner;
+	}
+
+}

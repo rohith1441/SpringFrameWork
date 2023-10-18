@@ -1,0 +1,15 @@
+package com.rohith.learnspringframework;
+
+import com.rohith.learnspringframework.game.GameRunner;
+import com.rohith.learnspringframework.game.MarioGame;
+
+public class AppGamingBasicJava {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		var marioGame = new MarioGame();
+		var gameRunner = new GameRunner(marioGame);
+		gameRunner.run();
+	}
+
+}

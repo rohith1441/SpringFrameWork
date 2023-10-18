@@ -1,0 +1,21 @@
+package practice_project;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableLoadTimeWeaving;
+import org.springframework.stereotype.Component;
+@Component
+@Configuration
+@ComponentScan
+public class calculations_main {
+	public static void main(String[] args) {
+		var context = new AnnotationConfigApplicationContext(calculations_main.class);
+		context.getBean(numbers_for_calculation.class).setNum1(1234);
+		context.getBean(numbers_for_calculation.class).setNum2(12345);
+		System.out.println(context.getBean(sum_of_numbers.class).sum());
+		
+		
+	}
+
+}

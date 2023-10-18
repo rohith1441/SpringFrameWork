@@ -1,0 +1,54 @@
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+
+import ch.qos.logback.core.testUtil.XTeeOutputStream;
+@Component
+@Primary
+class MangoDbDataService implements DataService{
+
+	@Override
+	public int[] retrieveData() {
+		// TODO Auto-generated method stub
+		return new int[] {11,22,33,44,55};
+	}
+	
+
+}
+@Component
+class MySQLDataService implements DataService{
+	@Override
+	public int[] retrieveData() {
+		// TODO Auto-generated method stub
+		return new int[] {1,2,3,4,5};
+	}
+	
+
+}
+@Configuration
+@ComponentScan
+@Component
+public class BusinessCalculationService {
+	DataService dataService;
+	public BusinessCalculationService(DataService dataService) {
+		super();
+		this.dataService = dataService;
+	}
+	public int findMax() {
+		return Arrays.stream(dataService.retrieveData()).max().orElse(0);
+	}
+	public static void main(String[] args) {
+		var context = new AnnotationConfigApplicationContext(BusinessCalculationService.class);
+		var bus = context.getBean(BusinessCalculationService.class);
+		System.out.println(bus.findMax());
+		
+	}
+
+}

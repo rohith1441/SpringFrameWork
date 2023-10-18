@@ -1,0 +1,18 @@
+package practice_project;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+@Component
+public class sum_of_numbers {
+	numbers_for_calculation numbers;
+	double sumed;
+	
+	public sum_of_numbers(numbers_for_calculation numbers) {
+		this.numbers=numbers;
+	}
+	public double sum() {
+		sumed=numbers.getNum1()+numbers.getNum2();
+		return sumed;
+	}
+
+}
